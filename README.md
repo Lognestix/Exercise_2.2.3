@@ -1,30 +1,15 @@
-# Код Java находящийся в этом репозитории
-
-```Java
-public class Main {
-    public static void main(String[] args) {
-        CreditPaymentService service = new CreditPaymentService();
-
-        int monthlyPaymentFor1Year = (int)service.calculate(1_000_000, 12); //Сумма займа, срок займа
-        System.out.println("Ежемесячный платеж составит " + monthlyPaymentFor1Year + "руб.");
-
-        int monthlyPaymentFor2Year = (int)service.calculate(1_000_000, 24); //Сумма займа, срок займа
-        System.out.println("Ежемесячный платеж составит " + monthlyPaymentFor2Year + "руб.");
-
-        int monthlyPaymentFor3Year = (int)service.calculate(1_000_000, 36); //Сумма займа, срок займа
-        System.out.println("Ежемесячный платеж составит " + monthlyPaymentFor3Year + "руб.");
-    }
-}
-```
-```Java
-public class CreditPaymentService {
-    public double calculate(int loanAmount, int loanTerm) {
-        double monthlyInterestRate = 9.99 / 12 / 100;                                   //Ежемесячная процентная ставка
-        double baseDegree = (1 + monthlyInterestRate);                                  //Основание степени
-        double subResult = Math.pow(baseDegree, loanTerm);                              //Промежуточный результат
-        double annuityCoefficient = monthlyInterestRate * subResult / (subResult - 1);  //Коэффициент аннуитета
-        double creditPayment = (loanAmount * annuityCoefficient);                       //Ежемесячный платеж
-        return (creditPayment);
-    }
-}
-```
+# Testability, автотесты, введение в ООП: объекты и методы (Exercise_2.2.3)
+## Домашнее задание по курсу "Java для тестировщиков"
+## Тема: «2.2. Testability, автотесты, введение в ООП: объекты и методы», задание №3: «Кредитный Калькулятор»
+- Создано приложение "кредитный калькулятор", которое умеет рассчитывать ежемесячный платёж.
+### Предварительные требования
+- На компьютере пользователя должна быть установлена:
+	- Intellij IDEA
+### Установка и запуск
+1. Склонировать проект на свой компьютер
+	- открыть терминал
+	- ввести команду 
+		```
+		git clone https://github.com/Lognestix/Exercise_2.2.3
+		```
+1. Открыть склонированный проект в Intellij IDEA
